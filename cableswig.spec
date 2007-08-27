@@ -1,14 +1,15 @@
 
 Summary:	CableSwig is used to create interfaces to interpreted languages
 Name:		cableswig
-Version:	3.0.0
-Release:	%mkrel 2
+Version:	3.2.0
+Release:	%mkrel 1
 License:	BSDish
 Group:		Development/C++
 URL:		http://www.itk.org
 Source0:	http://ovh.dl.sourceforge.net/sourceforge/itk/CableSwig-ITK-%{version}.tar.bz2
-Patch0:		CableSwig-libdir.patch
-Patch1:		cableswig-cmake-2.4.4+.patch
+# Patch0:		CableSwig-libdir.patch
+# Patch1:         cableswig-cmake-2.4.4+.patch
+Patch2:		pystrings.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	gccxml = 1:%{version}
 Provides:	cable
@@ -52,8 +53,9 @@ project.
 %prep
 
 %setup -q -n CableSwig-ITK-%{version}
-%patch0 -p1
-%patch1 -p0
+# %patch0 -p1
+# %patch1 -p0
+%patch2 -p0
 find -name CVS -type d | xargs rm -rf
 
 %build
@@ -75,12 +77,13 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
 cd build
 make install DESTDIR=$RPM_BUILD_ROOT
 
+# fix lib path
+mv $RPM_BUILD_ROOT/usr/lib $RPM_BUILD_ROOT/%{_libdir}
+
 # mv gccxml to std path
 mv $RPM_BUILD_ROOT/%{_libdir}/CableSwig/share $RPM_BUILD_ROOT/%{_prefix}
 mv $RPM_BUILD_ROOT/%{_libdir}/CableSwig/bin $RPM_BUILD_ROOT/%{_bindir}
 
-# workaround a bug in 3.0.0
-mv $RPM_BUILD_ROOT/%{_lib}/* $RPM_BUILD_ROOT/%{_libdir}
 # and another bug: some files are not copied
 cp -rf ../SWIG/Lib/* $RPM_BUILD_ROOT/%{_libdir}/CableSwig/SWIGLib
 
