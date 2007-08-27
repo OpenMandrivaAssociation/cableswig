@@ -2,7 +2,7 @@
 Summary:	CableSwig is used to create interfaces to interpreted languages
 Name:		cableswig
 Version:	3.2.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSDish
 Group:		Development/C++
 URL:		http://www.itk.org
