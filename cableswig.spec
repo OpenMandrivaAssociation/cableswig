@@ -78,7 +78,9 @@ cd build
 make install DESTDIR=$RPM_BUILD_ROOT
 
 # fix lib path
+%if "%{_lib}" == "lib64"
 mv $RPM_BUILD_ROOT/usr/lib $RPM_BUILD_ROOT/%{_libdir}
+%endif
 
 # mv gccxml to std path
 mv $RPM_BUILD_ROOT/%{_libdir}/CableSwig/share $RPM_BUILD_ROOT/%{_prefix}
