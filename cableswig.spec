@@ -10,6 +10,7 @@ Source0:	http://ovh.dl.sourceforge.net/sourceforge/itk/CableSwig-ITK-%{version}.
 # Patch0:		CableSwig-libdir.patch
 # Patch1:         cableswig-cmake-2.4.4+.patch
 Patch2:		pystrings.patch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	gccxml = 1:%{version}
 Provides:	cable
 
