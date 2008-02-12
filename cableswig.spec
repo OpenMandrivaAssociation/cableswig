@@ -36,8 +36,8 @@ Epoch:		1
 Development tools that work with programming languages benefit from their
 ability to understand the code with which they work at a level comparable to a
 compiler. C++ has become a popular and powerful language, but parsing it is a
-very challenging problem. This has discouraged the development of tools meant to
-work directly with the language. 
+very challenging problem. This has discouraged the development of tools meant
+to work directly with the language. 
 
 There is one open-source C++ parser, the C++ front-end to GCC, which is
 currently able to deal with the language in its entirety. The purpose of the
