@@ -1,5 +1,5 @@
 
-Summary:	CableSwig is used to create interfaces to interpreted languages
+Summary:	Used to create interfaces to interpreted languages
 Name:		cableswig
 Version:	3.2.0
 Release:	%mkrel 2
