@@ -1,15 +1,15 @@
 
 Summary:	Used to create interfaces to interpreted languages
 Name:		cableswig
-Version:	3.2.0
-Release:	%mkrel 5
+Version:	3.10.0
+Release:	%mkrel 1
 License:	BSDish
 Group:		Development/C++
 URL:		http://www.itk.org
-Source0:	http://ovh.dl.sourceforge.net/sourceforge/itk/CableSwig-ITK-%{version}.tar.bz2
+Source0:	http://public.kitware.com/pub/itk/v3.10/CableSwig-ITK-%{version}.tar.gz
 # Patch0:		CableSwig-libdir.patch
 # Patch1:         cableswig-cmake-2.4.4+.patch
-Patch2:		pystrings.patch
+# Patch2:		pystrings.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	gccxml = 1:%{version}
 Provides:	cable
@@ -55,7 +55,7 @@ project.
 %setup -q -n CableSwig-ITK-%{version}
 # %patch0 -p1
 # %patch1 -p0
-%patch2 -p0
+# %patch2 -p0
 find -name CVS -type d | xargs rm -rf
 
 %build
