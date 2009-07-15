@@ -1,20 +1,20 @@
 
 Summary:	Used to create interfaces to interpreted languages
 Name:		cableswig
-Version:	3.10.0
+Version:	3.14.0
 Release:	%mkrel 1
 License:	BSDish
 Group:		Development/C++
 URL:		http://www.itk.org
-Source0:	http://public.kitware.com/pub/itk/v3.10/CableSwig-ITK-%{version}.tar.gz
+Source0:	http://public.kitware.com/pub/itk/v3.14/CableSwig-ITK-%{version}.tar.gz
 # Patch0:		CableSwig-libdir.patch
 # Patch1:         cableswig-cmake-2.4.4+.patch
 # Patch2:		pystrings.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	gccxml = 1:%{version}
 Provides:	cable
-
 BuildRequires:  cmake
+
 %description
 CableSwig is used to create interfaces (i.e. "wrappers") to interpreted
 languages such as Tcl and Python. It was created to produce wrappers for ITK
@@ -67,7 +67,6 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
       -DLIB_DIRECTORY_NAME:STRING=%{_lib} \
       -DCMAKE_CXX_COMPILER:PATH=%{_bindir}/c++ \
       -DCMAKE_C_COMPILER:PATH=%{_bindir}/gcc \
-      -DSWIG_LIB_INSTALL:PATH=%{_libdir}/CableSwig/SWIGLib/ \
 ..
 
 %make
@@ -84,10 +83,8 @@ mv $RPM_BUILD_ROOT/usr/lib $RPM_BUILD_ROOT/%{_libdir}
 
 # mv gccxml to std path
 mv $RPM_BUILD_ROOT/%{_libdir}/CableSwig/share $RPM_BUILD_ROOT/%{_prefix}
-mv $RPM_BUILD_ROOT/%{_libdir}/CableSwig/bin $RPM_BUILD_ROOT/%{_bindir}
-
-# and another bug: some files are not copied
-cp -rf ../SWIG/Lib/* $RPM_BUILD_ROOT/%{_libdir}/CableSwig/SWIGLib
+mv $RPM_BUILD_ROOT/%{_libdir}/CableSwig/bin/* $RPM_BUILD_ROOT/%{_bindir}
+rmdir $RPM_BUILD_ROOT/%{_libdir}/CableSwig/bin
 
 # set correct path
 cat > $RPM_BUILD_ROOT/%{_libdir}/CableSwig/CableSwigConfig.cmake <<EOF
