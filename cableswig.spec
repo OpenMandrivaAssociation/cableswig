@@ -1,12 +1,12 @@
 
 Summary:	Used to create interfaces to interpreted languages
 Name:		cableswig
-Version:	3.14.0
-Release:	%mkrel 2
+Version:	3.16.0
+Release:	%mkrel 1
 License:	BSDish
 Group:		Development/C++
 URL:		http://www.itk.org
-Source0:	http://public.kitware.com/pub/itk/v3.14/CableSwig-ITK-%{version}.tar.gz
+Source0:	http://public.kitware.com/pub/itk/v3.16/CableSwig-ITK-%{version}.tar.gz
 # Patch0:		CableSwig-libdir.patch
 # Patch1:         cableswig-cmake-2.4.4+.patch
 # Patch2:		pystrings.patch
