@@ -1,7 +1,7 @@
 
 Summary:	Used to create interfaces to interpreted languages
 Name:		cableswig
-Version:	3.16.0
+Version:	3.20.0
 Release:	%mkrel 1
 License:	BSDish
 Group:		Development/C++
@@ -52,29 +52,25 @@ project.
 
 %prep
 
-%setup -q -n CableSwig-ITK-%{version}
+%setup -q -n CableSwig-%{version}
 # %patch0 -p1
 # %patch1 -p0
 # %patch2 -p0
 find -name CVS -type d | xargs rm -rf
 
 %build
-mkdir build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
-      -DCMAKE_BUILD_TYPE:STRING=Release \
-      -DCMAKE_SKIP_RPATH:BOOL=ON \
-      -DLIB_DIRECTORY_NAME:STRING=%{_lib} \
-      -DCMAKE_CXX_COMPILER:PATH=%{_bindir}/c++ \
-      -DCMAKE_C_COMPILER:PATH=%{_bindir}/gcc \
-..
-
-%make
+%cmake -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
+       -DCMAKE_BUILD_TYPE:STRING=Release \
+       -DCMAKE_SKIP_RPATH:BOOL=ON \
+       -DLIB_DIRECTORY_NAME:STRING=%{_lib} \
+       -DCMAKE_CXX_COMPILER:PATH=%{_bindir}/c++ \
+       -DCMAKE_C_COMPILER:PATH=%{_bindir}/gcc
+# 3.20.0 has a problem with paralell build when generating yacc scanner
+make
 
 %install
-[ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
-cd build
-make install DESTDIR=$RPM_BUILD_ROOT
+rm -fr %{buildroot}
+%makeinstall_std -C build
 
 # fix lib path
 %if "%{_lib}" == "lib64"
@@ -100,7 +96,7 @@ EOF
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -fr %{buildroot}
 
 %files
 %defattr(-,root,root)
