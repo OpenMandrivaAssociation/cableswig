@@ -2,14 +2,21 @@
 Summary:	Used to create interfaces to interpreted languages
 Name:		cableswig
 Version:	3.20.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	BSDish
 Group:		Development/C++
 URL:		http://www.itk.org
-Source0:	http://public.kitware.com/pub/itk/v3.16/CableSwig-ITK-%{version}.tar.gz
-# Patch0:		CableSwig-libdir.patch
-# Patch1:         cableswig-cmake-2.4.4+.patch
-# Patch2:		pystrings.patch
+Source0:	http://public.kitware.com/pub/itk/v3.20/CableSwig-ITK-%{version}.tar.gz
+
+# From fedora gccxml package
+#		Source is created from a cvs checkout
+#		Files for the Borland compiler are excluded for license reasons
+#		cvs -d:pserver:anoncvs@www.gccxml.org:/cvsroot/GCC_XML co \
+#			-D '2011-02-11 23:59:59Z' -d gccxml-20110211 gccxml
+#		tar -z -c --exclude CVS --exclude Borland \
+#			-f gccxml-20110211.tar.gz gccxml-20110211
+Source1:	gccxml-20110211.tar.gz
+
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	gccxml = 1:%{version}
 Provides:	cable
@@ -52,11 +59,11 @@ project.
 
 %prep
 
-%setup -q -n CableSwig-%{version}
-#%#patch0 -p1
-#%#patch1 -p0
-#%#patch2 -p0
+%setup -q -n CableSwig-%{version} -a1
 find -name CVS -type d | xargs rm -rf
+
+rm -fr GCC GCC_XML
+mv gccxml-20110211/GCC{,_XML} .
 
 %build
 %cmake -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
@@ -111,8 +118,3 @@ rm -fr %{buildroot}
 %{_mandir}/man*/*
 %{_bindir}/gccxml
 %{_bindir}/gccxml_cc1plus
-
-
-
-
-
