@@ -2,7 +2,7 @@
 Summary:	Used to create interfaces to interpreted languages
 Name:		cableswig
 Version:	3.20.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSDish
 Group:		Development/C++
 URL:		http://www.itk.org
@@ -53,9 +53,9 @@ project.
 %prep
 
 %setup -q -n CableSwig-%{version}
-# %patch0 -p1
-# %patch1 -p0
-# %patch2 -p0
+#%#patch0 -p1
+#%#patch1 -p0
+#%#patch2 -p0
 find -name CVS -type d | xargs rm -rf
 
 %build
