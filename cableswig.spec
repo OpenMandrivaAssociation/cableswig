@@ -118,3 +118,122 @@ rm -fr %{buildroot}
 %{_mandir}/man*/*
 %{_bindir}/gccxml
 %{_bindir}/gccxml_cc1plus
+
+
+%changelog
+* Thu Nov 17 2011 Paulo Andrade <pcpa@mandriva.com.br> 3.20.0-3mdv2012.0
++ Revision: 731255
+- Import and replace gccxml source to add support for gcc 4.6.
+
+* Thu Nov 17 2011 Paulo Andrade <pcpa@mandriva.com.br> 3.20.0-2
++ Revision: 731241
+- Rebuild.
+
+* Wed Jul 14 2010 Paulo Andrade <pcpa@mandriva.com.br> 3.20.0-1mdv2011.0
++ Revision: 553411
+- Update to version 3.20.0.
+
+* Mon Mar 08 2010 Lev Givon <lev@mandriva.org> 3.16.0-1mdv2010.1
++ Revision: 516716
+- Update to 3.16.0.
+
+* Thu Sep 10 2009 Thierry Vignaud <tv@mandriva.org> 3.14.0-2mdv2010.0
++ Revision: 436908
+- rebuild
+
+  + Gaëtan Lehmann <glehmann@mandriva.org>
+    - 3.14
+
+* Tue Jan 27 2009 Lev Givon <lev@mandriva.org> 3.10.0-1mdv2009.1
++ Revision: 334348
+- Update to 3.10.0.
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Mon Feb 18 2008 Thierry Vignaud <tv@mandriva.org> 3.2.0-3mdv2008.1
++ Revision: 170780
+- rebuild
+- fix "foobar is blabla" summary (=> "blabla") so that it looks nice in rpmdrake
+- fix description-line-too-long
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+* Mon Aug 27 2007 Gaëtan Lehmann <glehmann@mandriva.org> 3.2.0-2mdv2008.0
++ Revision: 71868
+- 3.2.0
+- generate code usable with python on x86_64 (patch2)
+- stop playing with patches to install cableswig in the right lib dir, and
+  try to install it at the right palce by hand
+
+
+* Sun Jan 07 2007 Gaëtan Lehmann <glehmann@mandriva.org> 3.0.0-2mdv2007.0
++ Revision: 105136
+- fix missing .i files
+
+* Sun Dec 17 2006 Gaëtan Lehmann <glehmann@mandriva.org> 3.0.0-1mdv2007.1
++ Revision: 98269
+- 3.0.0
+- Import cableswig
+
+* Wed Jul 26 2006 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 1:2.8.0-1mdk
+- New release 2.8.0
+
+* Thu Apr 27 2006 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.6.0-6mdk
+- cableswig requires the same version of gccxml
+
+* Tue Mar 28 2006 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.6.0-5mdk
+- no more require swig
+
+* Tue Mar 28 2006 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.6.0-4mdk
+- fix SWIGLIB search path
+
+* Sat Mar 25 2006 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.6.0-3mdk
+- Patch0: allow to xinstall in lib64 folder on x86_64
+- force /usr/bin/c++ and /usr/bin/gcc compilers
+
+* Tue Mar 21 2006 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.6.0-2mdk
+- rebuild to sync i586
+
+* Mon Mar 13 2006 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.6.0-1mdk
+- New release 2.6.0
+
+* Wed Dec 07 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.4.0-3mdk
+- force swig lib location
+- really use 2.4.0 !
+
+* Wed Dec 07 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.4.0-2mdk
+- rebuild
+
+* Sat Dec 03 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 2.4.0-1mdk
+- New release 2.4.0
+
+* Sat Oct 22 2005 Nicolas L�cureuil <neoclust@mandriva.org> 0.1.0-3.20050805.4mdk
+- Fix BuildRequires
+
+* Mon Aug 15 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 0.1.0-3.20050805.3mdk
+- rebuild
+
+* Sun Aug 07 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 0.1.0-3.20050805.2mdk
+- fix swiglib path
+- move lib back to /usr/lib on x86_64
+- fix build on i586
+
+* Sat Aug 06 2005 Gaetan Lehmann <glehmann@deborah.mandriva.com> 0.1.0-3.20050805.1mdk
+- cvs snapshot
+
+* Sun Jun 12 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 0.1.0-3mdk
+- fix x86_64 build
+- use mkrel
+
+* Sat Feb 12 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 0.1.0-2mdk
+- fix SWIG Lib directory
+
+* Wed Feb 09 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 0.1.0-1mdk
+- stable release from itk
+
+* Sun Jan 30 2005 Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr> 0.1.0-0.cvs20050130.1mdk
+- initial contrib
+
