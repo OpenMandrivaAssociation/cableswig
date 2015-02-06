@@ -2,7 +2,7 @@
 Summary:	Used to create interfaces to interpreted languages
 Name:		cableswig
 Version:	3.20.0
-Release:	%mkrel 3
+Release:	4
 License:	BSDish
 Group:		Development/C++
 URL:		http://www.itk.org
