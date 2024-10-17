@@ -5,7 +5,7 @@ Version:	3.20.0
 Release:	4
 License:	BSDish
 Group:		Development/C++
-URL:		http://www.itk.org
+URL:		https://www.itk.org
 Source0:	http://public.kitware.com/pub/itk/v3.20/CableSwig-ITK-%{version}.tar.gz
 
 # From fedora gccxml package
